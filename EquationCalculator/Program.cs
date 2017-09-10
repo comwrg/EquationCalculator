@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 
@@ -21,7 +22,12 @@ namespace EquationCalculator
                     Console.Write("x=");
                     foreach (double d in b.GetResult())
                     {
-                        Console.Write($"{d},");
+                        Console.Write($"{d}");
+                        if (!int.TryParse(d.ToString(CultureInfo.InvariantCulture), out int i))
+                        {
+                            Console.Write("(超出整数范围)");
+                        }
+                        Console.Write(",");
                     }
                 }
                 catch (Exception e)
