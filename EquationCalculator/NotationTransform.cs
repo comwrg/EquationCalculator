@@ -99,7 +99,10 @@ namespace EquationCalculator
             notation = Regex.Replace(notation, @"^[+\-]", "");
             notation = Regex.Replace(notation, @"\([+\-]", "(");
             // +++++ -> +
-            notation = Regex.Replace(notation, @"[+\-*/%]{2,}", DealMultipleSymbols);
+            foreach (char c in "+-*/%")
+            {
+                notation = Regex.Replace(notation, Regex.Escape(c.ToString()) + "{2,}", DealMultipleSymbols);
+            }
             // Console.WriteLine($"Simplification: {notation}");
             return notation;
         }
