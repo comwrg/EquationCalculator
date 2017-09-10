@@ -93,8 +93,8 @@ namespace EquationCalculator
             // x -> 1x
             notation = Regex.Replace(notation, @"(?<!\d)x", "1x");
             // ) -> )* 
-            notation = Regex.Replace(notation, @"[^+\-*/]\(", DealBrackets);
-            notation = Regex.Replace(notation, @"\)[^+\-*/]", DealBrackets);
+            notation = Regex.Replace(notation, @"[^+\-*/=\(]\(\)", DealBrackets);
+            notation = Regex.Replace(notation, @"\)[^+\-*/=\(\)]", DealBrackets);
             // delete extra symbols
             notation = Regex.Replace(notation, @"^[+\-]", "");
             notation = Regex.Replace(notation, @"\([+\-]", "(");
