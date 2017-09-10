@@ -48,7 +48,7 @@ namespace TestEquationCalculator
             }
         }
 
-
+        // copy from https://www.dotnetperls.com/list-equals
         static bool UnorderedEqual<T>(ICollection<T> a, ICollection<T> b)
         {
             // 1
