@@ -37,6 +37,10 @@ namespace TestEquationCalculator
                  {"2(3x)+3x=81",new List<double>{9}},
                  {"2(x-1)+8=4*x-20",new List<double>{13}},
                  {"4x^2-11*2=x^2+5",new List<double>{3, -3}},
+                 {"x+++3=0", new List<double>{-3}},
+                 {"x+-3=0", new List<double>{3}},
+                 {"x=10*-2", new List<double>{-20}},
+                 {"x=(1+9)/2", new List<double>{5}},
              };
 
             foreach (var k in dic)
