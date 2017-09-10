@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EquationCalculator
 {
-    class DollarEquation
+    public class DollarEquation
     {
         public double A { get; set; }
         public double B { get; set; }

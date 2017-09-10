@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace EquationCalculator
 {
-    internal class NotationTransform
+    public class NotationTransform
     {
         public static List<string> Infix2Postfix(string notation)
         {

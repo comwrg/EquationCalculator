@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace EquationCalculator
 {
-    class CalcPostfix
+    public class CalcPostfix
     {
         public static DollarEquation Calc(List<string> list)
         {
