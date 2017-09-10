@@ -84,10 +84,15 @@ namespace EquationCalculator
             DollarEquation o = new DollarEquation();
             if (a.A == 0 && b.A == 0)
             {
+                // 1 / 0
+                if (b.B == 0 && b.C == 0)
+                {
+                    throw new Exception("除数不能为0");
+                }
                 // 1x / 2
                 // B = 1, C = 0
                 // B = 0, C = 2
-                if (a.C == 0 && b.B == 0.0 && b.C != 0)
+                else if (a.C == 0 && b.B == 0.0 && b.C != 0)
                 {
                     o.B = a.B / b.C;
                 }
