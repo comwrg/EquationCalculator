@@ -98,7 +98,8 @@ namespace EquationCalculator
             // delete extra symbols
             notation = Regex.Replace(notation, @"^[+\-]", "");
             notation = Regex.Replace(notation, @"\([+\-]", "(");
-
+            // +++++ -> +
+            notation = Regex.Replace(notation, @"[+\-*/%]{2,}", DealMultipleSymbols);
             // Console.WriteLine($"Simplification: {notation}");
             return notation;
         }
@@ -114,6 +115,11 @@ namespace EquationCalculator
                 return m.Value.Replace(")", ")*");
             }
             return "";
+        }
+
+        private static string DealMultipleSymbols(Match m)
+        {
+            return m.Value.Substring(0, 1);
         }
 
         private static string Equation2Notation(string e)
