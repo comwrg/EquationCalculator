@@ -10,13 +10,17 @@ namespace EquationCalculator
         public double A { get; set; }
         public double B { get; set; }
         public double C { get; set; }
+
         public List<double> GetResult()
         {
             List<double> list = new List<double>();
             if (A == 0)
             {
                 if (B == 0)
+                {
+                    list.Add(C);
                     return list;
+                }
                 list.Add(-C / B);
                 return list;
             }
@@ -119,6 +123,24 @@ namespace EquationCalculator
                 }
             }
 
+            return o;
+        }
+
+        public static DollarEquation operator %(DollarEquation b, DollarEquation a)
+        {
+            DollarEquation o = new DollarEquation();
+            // 1 % 3
+            if (a.A == 0 && a.B == 0 && b.A == 0 && b.B == 0)
+            {
+                if (b.C == 0)
+                {
+                    throw new Exception("除数不能为0");
+                }
+                else
+                {
+                    o.C = a.C % b.C;
+                }
+            }
             return o;
         }
     }

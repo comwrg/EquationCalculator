@@ -74,7 +74,7 @@ namespace EquationCalculator
         public static int IsHigher(string a, string b)
         {
             var dic =
-                new Dictionary<string, int> {{"+", 0}, {"-", 0}, {"*", 1}, {"/", 1}, {"(", 2}, {")", 2}};
+                new Dictionary<string, int> {{"+", 0}, {"-", 0}, {"*", 1}, {"/", 1}, {"%", 1}, {"(", 2}, {")", 2}};
             if (int.TryParse(a, out var i))
                 return -1;
             if (a == "(")

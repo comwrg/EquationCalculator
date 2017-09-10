@@ -49,6 +49,9 @@ namespace EquationCalculator
                         case "/":
                             stack.Push(stack.Pop() / stack.Pop());
                             break;
+                        case "%":
+                            stack.Push(stack.Pop() % stack.Pop());
+                            break;
                     }
                 }
             }
