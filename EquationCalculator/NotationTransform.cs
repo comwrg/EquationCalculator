@@ -52,19 +52,22 @@ namespace EquationCalculator
         public static List<string> GetItem(string notation)
         {
             var rlen = 0;
+            var isSymbol = false;
             var list = new List<string>();
             while (notation.Length != 0)
             {
-                var m = Regex.Match(notation, @"^\-?\d+x?(?:\^\d)?");
+                var m = Regex.Match(notation, isSymbol ? @"^\-?\d+x?(?:\^\d)?" : @"^\d+x?(?:\^\d)?");
                 if (m.Success)
                 {
                     list.Add(m.Value);
                     rlen = m.Length;
+                    isSymbol = false;
                 }
                 else
                 {
                     list.Add(notation.Substring(0, 1));
                     rlen = 1;
+                    isSymbol = true;
                 }
                 notation = notation.Remove(0, rlen);
             }
@@ -93,11 +96,11 @@ namespace EquationCalculator
             // x -> 1x
             notation = Regex.Replace(notation, @"(?<!\d)x", "1x");
             // ) -> )* 
-            notation = Regex.Replace(notation, @"[^+\-*/=\(]\(\)", DealBrackets);
-            notation = Regex.Replace(notation, @"\)[^+\-*/=\(\)]", DealBrackets);
+            notation = Regex.Replace(notation, @"[^\+\-\*/=\(]\(", DealBrackets);
+            notation = Regex.Replace(notation, @"\)[^\+\-\*/=\)]", DealBrackets);
             // delete extra symbols
-            notation = Regex.Replace(notation, @"^[+\-]", "");
-            notation = Regex.Replace(notation, @"\([+\-]", "(");
+            notation = Regex.Replace(notation, @"^[\+\-]", "");
+            notation = Regex.Replace(notation, @"\([\+\-]", "(");
             // +++++ -> +
             foreach (char c in "+-*/%")
             {
