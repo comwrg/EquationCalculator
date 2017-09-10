@@ -11,16 +11,18 @@ namespace EquationCalculator
         {
             while (true)
             {
-                Console.WriteLine("请输入方程后按回车：");
+                Console.Write("calc：");
                 string s = Console.ReadLine();
                 var a = NotationTransform.Infix2Postfix(s);
-                Console.WriteLine($"{string.Join(" ", a.ToArray())}");
+                // Console.WriteLine($"{string.Join(" ", a.ToArray())}");
                 var b = CalcPostfix.Calc(a);
-                Console.WriteLine($"{b.A}x^2+{b.B}x+{b.C}=0");
+                // Console.WriteLine($"{b.A}x^2+{b.B}x+{b.C}=0");
+                Console.Write("x=");
                 foreach (double d in b.GetResult())
                 {
-                    Console.WriteLine($"答案：{d}");
+                    Console.Write($"{d},");
                 }
+                Console.WriteLine();
             }
         }
     }

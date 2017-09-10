@@ -41,8 +41,8 @@ namespace EquationCalculator
                         output.Add(oper.Pop());
                     oper.Push(s);
                 }
-                Console.WriteLine(
-                    $"oper: {string.Join(" ", oper.ToArray())},, output: {string.Join(" ", output.ToArray())}");
+//                Console.WriteLine(
+//                    $"oper: {string.Join(" ", oper.ToArray())},, output: {string.Join(" ", output.ToArray())}");
             }
             while (oper.Count != 0)
                 output.Add(oper.Pop());
@@ -99,7 +99,7 @@ namespace EquationCalculator
             notation = Regex.Replace(notation, @"^[+\-]", "");
             notation = Regex.Replace(notation, @"\([+\-]", "(");
 
-            Console.WriteLine($"Simplification: {notation}");
+            // Console.WriteLine($"Simplification: {notation}");
             return notation;
         }
 
