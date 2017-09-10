@@ -55,7 +55,7 @@ namespace EquationCalculator
             var list = new List<string>();
             while (notation.Length != 0)
             {
-                var m = Regex.Match(notation, @"^\d+x?(?:\^\d)?");
+                var m = Regex.Match(notation, @"^\-?\d+x?(?:\^\d)?");
                 if (m.Success)
                 {
                     list.Add(m.Value);
